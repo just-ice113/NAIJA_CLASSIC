@@ -1,3 +1,4 @@
+tool
 extends Sprite
 
 # Card Game Data
@@ -8,7 +9,6 @@ var is_dragging = false
 var drag_offset = Vector2.ZERO
 
 func _ready():
-    set_process_input(true)
     update_card_texture()
 
 func update_card_texture():
