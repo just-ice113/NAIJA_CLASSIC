@@ -3,7 +3,7 @@ extends Sprite
 
 # Card Game Data
 export var card_suit: String = "circle" # Options: circle, cross, square, star, triangle
-export var card_number: int = 1         # Number value (1 to 14, or 20 for special whot)
+export var card_number: int = 1         # Number value (1 to 14)
 
 var is_dragging = false
 var drag_offset = Vector2.ZERO
@@ -12,10 +12,9 @@ func _ready():
     update_card_texture()
 
 func update_card_texture():
-    # Automatically build the file path based on suit and number
-    var texture_path = "res://Whot_" + card_suit.to_lower() + str(card_number) + ".png"
+    # Builds path matching your file names: res://circle1.png, res://cross2.png, etc.
+    var texture_path = "res://" + card_suit.to_lower() + str(card_number) + ".png"
     
-    # Check if the file exists, then load it into the sprite
     if ResourceLoader.exists(texture_path):
         texture = load(texture_path)
     else:
